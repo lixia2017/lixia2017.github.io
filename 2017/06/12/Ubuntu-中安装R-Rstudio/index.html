@@ -6,19 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://lixia2017.github.io">
-  <title>push时 git中出现错误 sign_and_send_pubkey | 生命在于折腾！</title>
+  <title>Ubuntu 中安装R/Rstudio | 生命在于折腾！</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="date: 2017-05-11 12:52:28在push的时候出现了: sign_and_send_pubkey: signing failed: agentrefused operation这个问题。百思不得其解…">
+  <meta name="description" content="1.R的安装1.1首先添加镜像源 Ctrl+Alt+T打开终端$ sudo gedit /etc/apt/sources.list">
 <meta name="keywords" content="-Myblog">
 <meta property="og:type" content="article">
-<meta property="og:title" content="push时 git中出现错误 sign_and_send_pubkey">
-<meta property="og:url" content="https://lixia2017.github.io/2017/05/12/git中出现sign-and-send-pubkey-signing-failed-agent-refused-operation/index.html">
+<meta property="og:title" content="Ubuntu 中安装R&#x2F;Rstudio">
+<meta property="og:url" content="https://lixia2017.github.io/2017/06/12/Ubuntu-中安装R-Rstudio/index.html">
 <meta property="og:site_name" content="生命在于折腾！">
-<meta property="og:description" content="date: 2017-05-11 12:52:28在push的时候出现了: sign_and_send_pubkey: signing failed: agentrefused operation这个问题。百思不得其解…">
-<meta property="og:updated_time" content="2017-05-12T07:11:40.063Z">
+<meta property="og:description" content="1.R的安装1.1首先添加镜像源 Ctrl+Alt+T打开终端$ sudo gedit /etc/apt/sources.list">
+<meta property="og:updated_time" content="2017-06-12T08:49:53.244Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="push时 git中出现错误 sign_and_send_pubkey">
-<meta name="twitter:description" content="date: 2017-05-11 12:52:28在push的时候出现了: sign_and_send_pubkey: signing failed: agentrefused operation这个问题。百思不得其解…">
+<meta name="twitter:title" content="Ubuntu 中安装R&#x2F;Rstudio">
+<meta name="twitter:description" content="1.R的安装1.1首先添加镜像源 Ctrl+Alt+T打开终端$ sudo gedit /etc/apt/sources.list">
   
     <link rel="alternative" href="/atom.xml" title="生命在于折腾！" type="application/atom+xml">
   
@@ -156,14 +156,14 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-git中出现sign-and-send-pubkey-signing-failed-agent-refused-operation" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-Ubuntu-中安装R-Rstudio" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      push时 git中出现错误 sign_and_send_pubkey
+      Ubuntu 中安装R/Rstudio
     </h1>
   
 
@@ -176,20 +176,48 @@
 
           
         
-        <a href="/2017/05/12/git中出现sign-and-send-pubkey-signing-failed-agent-refused-operation/" class="archive-article-date">
-  	<time datetime="2017-05-12T07:11:40.119Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-05-12</time>
+        <a href="/2017/06/12/Ubuntu-中安装R-Rstudio/" class="archive-article-date">
+  	<time datetime="2017-06-12T08:44:47.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-06-12</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>date: 2017-05-11 12:52:28<br>在push的时候出现了: sign_and_send_pubkey: signing failed: agentrefused operation这个问题。<br>百思不得其解…<br><a id="more"></a></p>
-<p>解决方法如下：在命定行中输入<br>eval “$(ssh-agent -s)”<br>ssh-add</p>
-<p>执行上述两句代码，在执行你的push,就可以了。大家试一下吧。<br>可能原因：如果设置了ssh的账号密码，每次关机后开机，需要再次提交密码。—个人理解</p>
-<p>####</p>
-<p>hexo g -d 出现如下错误：<br>ERROR Plugin load failed: hexo-generator-json-content</p>
-<p>可以用<br>npm i -S hexo-generator-json-content@1<br>解决问题</p>
+        <p>1.R的安装<br>1.1首先添加镜像源</p>
+<h1 id="Ctrl-Alt-T打开终端"><a href="#Ctrl-Alt-T打开终端" class="headerlink" title="Ctrl+Alt+T打开终端"></a>Ctrl+Alt+T打开终端</h1><p>$ sudo gedit /etc/apt/sources.list<br><a id="more"></a></p>
+<h1 id="加入新镜像源-回车之后会自动跳出一个文本框，然后在相似的地方输入"><a href="#加入新镜像源-回车之后会自动跳出一个文本框，然后在相似的地方输入" class="headerlink" title="加入新镜像源 回车之后会自动跳出一个文本框，然后在相似的地方输入"></a>加入新镜像源 回车之后会自动跳出一个文本框，然后在相似的地方输入</h1><p>deb <a href="http://cran.rstudio.com/bin/linux/ubuntu" target="_blank" rel="external">http://cran.rstudio.com/bin/linux/ubuntu</a> trusty/</p>
+<p>1.2 运行命令下载公钥</p>
+<h1 id="下载公钥"><a href="#下载公钥" class="headerlink" title="下载公钥"></a>下载公钥</h1><p>$ sudo apt-key adv –keyserver keyserver.ubuntu.com –recv-keys 51716619E084DAB9</p>
+<h1 id="然后更新一下"><a href="#然后更新一下" class="headerlink" title="然后更新一下"></a>然后更新一下</h1><p>$ sudo apt-get update</p>
+<p>1.3 安装R<br>$ sudo apt-get install r-base</p>
+<p>然后验证是否安装成功：在终端输入R，出现R的信息则安装成功。</p>
+<p>1.4 其他(如R包的安装）</p>
+<h1 id="安装包"><a href="#安装包" class="headerlink" title="安装包"></a>安装包</h1><blockquote>
+<p>install.packages()</p>
+<h1 id="更新包"><a href="#更新包" class="headerlink" title="更新包"></a>更新包</h1><p>update.packages(lib.loc = “/usr/local/lib/R/site-library”)</p>
+</blockquote>
+<ol>
+<li>安装Rstudio<br>2.1 安装</li>
+</ol>
+<p>首先，去下载对应自己系统的安装文件: <a href="http://www.rstudio.com/products/rstudio/download/，然后执行一下步骤。" target="_blank" rel="external">http://www.rstudio.com/products/rstudio/download/，然后执行一下步骤。</a></p>
+<p>$ sudo apt-get install gdebi-core</p>
+<p>##如报错可sudo apt-get -f install 解决 </p>
+<p>$ wget <a href="https://download2.rstudio.org/rstudio-server-0.99.902-amd64.deb" target="_blank" rel="external">https://download2.rstudio.org/rstudio-server-0.99.902-amd64.deb</a><br>$ sudo gdebi rstudio-server-0.99.902-amd64.deb</p>
+<p>2.2 启动Rstudio server<br>在浏览器中输入地址和端口，如：</p>
+<p>#在windows下的浏览器中，192.168.43.129为安装rstudio的地址：</p>
+<p>#<a href="http://192.168.43.129:8787" target="_blank" rel="external">http://192.168.43.129:8787</a></p>
+<p>在Ubuntu下：<br><a href="http://localhost:8787" target="_blank" rel="external">http://localhost:8787</a><br>然后会出现要求输入用户名和密码，这跟登录Ubuntu时候使用的用户和密码相同</p>
+<p>2.3在Rstudio server里安装ggplot2<br>安装ggplot2包之前需要先安装其它的依赖包：’ plyr ‘ , ‘ digest ‘ , ‘ gtable ‘ , ‘ reshape2 ‘ , ‘ scales ‘ , ‘ proto ‘ , 在Rstudio的命令窗口分别执行以下命令：</p>
+<p>install.packages(‘plyr’)<br>install.packages(‘digest’)<br>install.packages(‘gtable’)<br>install.packages(‘reshape2’)<br>install.packages(‘scales’)<br>install.packages(‘proto’)</p>
+<p>然后，安装ggplot2包：</p>
+<p>install.packages(‘ggplot2’)</p>
+<p>参考：</p>
+<p><a href="https://www.rstudio.com/products/rstudio/download-server/" target="_blank" rel="external">https://www.rstudio.com/products/rstudio/download-server/</a></p>
+<p><a href="https://cran.r-project.org/bin/linux/ubuntu/" target="_blank" rel="external">https://cran.r-project.org/bin/linux/ubuntu/</a></p>
+<p><a href="https://bookdown.org/yihui/r-ninja/setup.html#r" target="_blank" rel="external">https://bookdown.org/yihui/r-ninja/setup.html#r</a></p>
+<p>本文为转载，原地址：</p>
+<p><a href="http://www.cnblogs.com/homewch/p/5658699.html" target="_blank" rel="external">http://www.cnblogs.com/homewch/p/5658699.html</a></p>
 
       
 
@@ -290,7 +318,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="http://s.jiathis.com/qrcode.php?url=https://lixia2017.github.io/2017/05/12/git中出现sign-and-send-pubkey-signing-failed-agent-refused-operation/" alt="微信分享二维码">
+      <img src="http://s.jiathis.com/qrcode.php?url=https://lixia2017.github.io/2017/06/12/Ubuntu-中安装R-Rstudio/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -304,15 +332,11 @@
   
 <nav id="article-nav">
   
-    <a href="/2017/05/15/linu的常见命定/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          linux的常见命令
-        
-      </div>
-    </a>
   
+    <a href="/2017/06/12/Ubuntu-安装deb软件/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Ubuntu 安装deb软件</div>
+      <i class="icon-circle-right"></i>
+    </a>
   
 </nav>
 
@@ -326,8 +350,8 @@
   <div id="cloud-tie-wrapper" class="cloud-tie-wrapper"></div>
 <script>
   var cloudTieConfig = {
-    url: "https://lixia2017.github.io/2017/05/12/git中出现sign-and-send-pubkey-signing-failed-agent-refused-operation/", 
-    sourceId: "git中出现sign-and-send-pubkey-signing-failed-agent-refused-operation",
+    url: "https://lixia2017.github.io/2017/06/12/Ubuntu-中安装R-Rstudio/", 
+    sourceId: "Ubuntu-中安装R-Rstudio",
     productKey: "fasle",
     target: "cloud-tie-wrapper"
   };
