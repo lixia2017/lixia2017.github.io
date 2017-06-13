@@ -8,16 +8,17 @@
   <link rel="dns-prefetch" href="https://lixia2017.github.io">
   <title>lecture 8 ID转换 | 生命在于折腾！</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="ID转换ID转换，就是找到对应关系，然后match所需转换的ID！  针对芯片数据，可用芯片对应的Ｒ包，如下：  1.1 affymetrix芯片处理 rm(list=ls()) library(“hgu95av2.db”)ls(‘package:hgu95av2.db’)　#36种对应关系 probe2entrezID=toTable(hgu95av2ENTREZID)probe2symbol=">
+  <meta name="description" content="ID转换，就是找到对应关系，然后match所需转换的ID！">
+<meta name="keywords" content="-Bioinformation">
 <meta property="og:type" content="article">
 <meta property="og:title" content="lecture 8 ID转换">
 <meta property="og:url" content="https://lixia2017.github.io/2017/06/13/lecture-8-ID转换/index.html">
 <meta property="og:site_name" content="生命在于折腾！">
-<meta property="og:description" content="ID转换ID转换，就是找到对应关系，然后match所需转换的ID！  针对芯片数据，可用芯片对应的Ｒ包，如下：  1.1 affymetrix芯片处理 rm(list=ls()) library(“hgu95av2.db”)ls(‘package:hgu95av2.db’)　#36种对应关系 probe2entrezID=toTable(hgu95av2ENTREZID)probe2symbol=">
-<meta property="og:updated_time" content="2017-06-13T04:53:31.735Z">
+<meta property="og:description" content="ID转换，就是找到对应关系，然后match所需转换的ID！">
+<meta property="og:updated_time" content="2017-06-13T05:39:18.171Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="lecture 8 ID转换">
-<meta name="twitter:description" content="ID转换ID转换，就是找到对应关系，然后match所需转换的ID！  针对芯片数据，可用芯片对应的Ｒ包，如下：  1.1 affymetrix芯片处理 rm(list=ls()) library(“hgu95av2.db”)ls(‘package:hgu95av2.db’)　#36种对应关系 probe2entrezID=toTable(hgu95av2ENTREZID)probe2symbol=">
+<meta name="twitter:description" content="ID转换，就是找到对应关系，然后match所需转换的ID！">
   
     <link rel="alternative" href="/atom.xml" title="生命在于折腾！" type="application/atom+xml">
   
@@ -183,7 +184,7 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>ID转换<br>ID转换，就是找到对应关系，然后match所需转换的ID！</p>
+        <p>ID转换，就是找到对应关系，然后match所需转换的ID！<br><a id="more"></a></p>
 <ol>
 <li>针对芯片数据，可用芯片对应的Ｒ包，如下：</li>
 </ol>
@@ -212,6 +213,7 @@
 <p>entrzID=c(“672”,”1”)<br>getBM(attributes=c(“entrezgene”,”hgnc_symbol”,”ensembl_gene_id”), filters = “entrezgene”, values =entrzID, mart=ensembl)</p>
 <p>genesymbol&lt;-getBM(attributes=c(“entrezgene”,”hgnc_symbol”,”ensembl_gene_id”), filters = “entrezgene”, values =entrzID, mart=ensembl)<br>write.table(genesymbol, file=”symbol.xls”, sep=”\t”,quote=F)</p>
 <p>tmp&lt;-read.table(“geneid.txt”)  ###需要转换的geneid 集<br>tmp2&lt;-getBM(attributes=c(“entrezgene”,”hgnc_symbol”,”ensembl_gene_id”), filters = “entrezgene”, values =tmp, mart=ensembl )<br>write.table(tmp2, file=”xxx.xls”, sep=”\t”,quote=F)</p>
+<p>包的安装：<br>source(“<a href="http://bioconductor.org/biocLite.R" target="_blank" rel="external">http://bioconductor.org/biocLite.R</a>“)<br>options(BioC_mirror=”<a href="http://mirrors.ustc.edu.cn/bioc/" target="_blank" rel="external">http://mirrors.ustc.edu.cn/bioc/</a>“)<br>library(“hgu95av2.db”)<br>ls(‘package:hgu95av2.db’)　#36种对应关系</p>
 
       
 
@@ -251,6 +253,17 @@
     <div class="article-info article-info-index">
       
       
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">-Bioinformation</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
       
 
       
