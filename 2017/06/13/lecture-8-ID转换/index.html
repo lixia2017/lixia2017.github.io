@@ -6,14 +6,18 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://lixia2017.github.io">
-  <title>Archives: 2017 | 生命在于折腾！</title>
+  <title>lecture 8 ID转换 | 生命在于折腾！</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="生命在于折腾！">
-<meta property="og:url" content="https://lixia2017.github.io/archives/2017/index.html">
+  <meta name="description" content="ID转换ID转换，就是找到对应关系，然后match所需转换的ID！  针对芯片数据，可用芯片对应的Ｒ包，如下：  1.1 affymetrix芯片处理 rm(list=ls()) library(“hgu95av2.db”)ls(‘package:hgu95av2.db’)　#36种对应关系 probe2entrezID=toTable(hgu95av2ENTREZID)probe2symbol=">
+<meta property="og:type" content="article">
+<meta property="og:title" content="lecture 8 ID转换">
+<meta property="og:url" content="https://lixia2017.github.io/2017/06/13/lecture-8-ID转换/index.html">
 <meta property="og:site_name" content="生命在于折腾！">
+<meta property="og:description" content="ID转换ID转换，就是找到对应关系，然后match所需转换的ID！  针对芯片数据，可用芯片对应的Ｒ包，如下：  1.1 affymetrix芯片处理 rm(list=ls()) library(“hgu95av2.db”)ls(‘package:hgu95av2.db’)　#36种对应关系 probe2entrezID=toTable(hgu95av2ENTREZID)probe2symbol=">
+<meta property="og:updated_time" content="2017-06-13T04:53:31.735Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="生命在于折腾！">
+<meta name="twitter:title" content="lecture 8 ID转换">
+<meta name="twitter:description" content="ID转换ID转换，就是找到对应关系，然后match所需转换的ID！  针对芯片数据，可用芯片对应的Ｒ包，如下：  1.1 affymetrix芯片处理 rm(list=ls()) library(“hgu95av2.db”)ls(‘package:hgu95av2.db’)　#36种对应关系 probe2entrezID=toTable(hgu95av2ENTREZID)probe2symbol=">
   
     <link rel="alternative" href="/atom.xml" title="生命在于折腾！" type="application/atom+xml">
   
@@ -151,384 +155,198 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
+            <article id="post-lecture-8-ID转换" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
   
+    <h1 class="article-title" itemprop="name">
+      lecture 8 ID转换
+    </h1>
   
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2017" class="archive-year">2017</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/06/13/lecture-8-ID转换/" class="archive-article-date">
+
+          
+          <!-- 显示阅读和评论数 -->
+          
+           <span id="busuanzi_container_page_pv">
+             本文总阅读量<span id="busuanzi_value_page_pv"></span>次
+           </span>
+
+          
+        
+        <a href="/2017/06/13/lecture-8-ID转换/" class="archive-article-date">
   	<time datetime="2017-06-13T04:13:01.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-06-13</time>
 </a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/06/13/lecture-8-ID转换/">lecture 8 ID转换</a>
-    </h1>
-  
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>ID转换<br>ID转换，就是找到对应关系，然后match所需转换的ID！</p>
+<ol>
+<li>针对芯片数据，可用芯片对应的Ｒ包，如下：</li>
+</ol>
+<p>1.1 affymetrix芯片处理</p>
+<p>rm(list=ls())</p>
+<p>library(“hgu95av2.db”)<br>ls(‘package:hgu95av2.db’)　#36种对应关系</p>
+<p>probe2entrezID=toTable(hgu95av2ENTREZID)<br>probe2symbol=toTable(hgu95av2SYMBOL)<br>probe2genename=toTable(hgu95av2GENENAME)</p>
+<p>my_probe = sample(unique(mappedLkeys(hgu95av2ENTREZID)),30)</p>
+<p>tmp1 = probe2symbol[match(my_probe,probe2symbol$probe_id),]<br>tmp2 = probe2entrezID[match(my_probe,probe2entrezID$probe_id),]<br>tmp3 = probe2genename[match(my_probe,probe2genename$probe_id),]</p>
+<p>write.table(my_probe,’my_probe.txt’,quote = F,col.names = F,row.names =F)<br>write.table(tmp1$symbol,’my_symbol.txt’,quote = F,col.names = F,row.names =F)<br>write.table(tmp2$gene_id,’my_geneID.txt’,quote = F,col.names = F,row.names =F)</p>
+<p>1.2illumina芯片的 探针：</p>
+<p>library(“illuminaHumanv4.db”)<br>ls(‘package:illuminaHumanv4.db’)</p>
+<p>probe2entrezID=toTable(illuminaHumanv4ENTREZID)<br>probe2symbol=toTable(illuminaHumanv4SYMBOL)<br>probe2genename=toTable(illuminaHumanv4GENENAME)</p>
+<p>my_probe = sample(unique(mappedLkeys(illuminaHumanv4ENTREZID)),30)</p>
+<p>probe2symbol[match(my_probe,probe2symbol$probe_id),]<br>probe2entrezID[match(my_probe,probe2entrezID$probe_id),]<br>probe2genename[match(my_probe,probe2genename$probe_id),]</p>
+<ol>
+<li>基因数据<br>library(“illuminaHumanv4.db”)<br>ls(‘package:illuminaHumanv4.db’)<br>my_entrez_gene = sample(unique(mappedRkeys(illuminaHumanv4ENTREZID)),30)<br>my_symbol_gene = sample(unique(mappedRkeys(illuminaHumanv4SYMBOL)),30)</li>
+</ol>
+<p>library(“org.Hs.eg.db”)<br>ls(‘package:org.Hs.eg.db’)</p>
+<p>entrezID2symbol &lt;- toTable(org.Hs.egSYMBOL)</p>
+<p>entrezID2symbol[match(my_entrez_gene,entrezID2symbol$gene_id),]<br>entrezID2symbol[match(my_symbol_gene,entrezID2symbol$symbol),]</p>
+<p>此外，还有Biomart包</p>
+<p>source(“<a href="http://bioconductor.org/biocLite.R" target="_blank" rel="external">http://bioconductor.org/biocLite.R</a>“)<br>options(BioC_mirror=”<a href="http://mirrors.ustc.edu.cn/bioc/" target="_blank" rel="external">http://mirrors.ustc.edu.cn/bioc/</a>“)<br>biocLite(“org.Hs.eg.db”)</p>
+<p>library(org.Hs.eg.db)<br>biocLite(“biomaRt”)<br>library(biomaRt)</p>
+<p>ensembl &lt;-  useMart(“ensembl”, dataset = “hsapiens_gene_ensembl”)</p>
+<p>entrzID=c(“672”,”1”)<br>getBM(attributes=c(“entrezgene”,”hgnc_symbol”,”ensembl_gene_id”), filters = “entrezgene”, values =entrzID, mart=ensembl)</p>
+<p>genesymbol&lt;-getBM(attributes=c(“entrezgene”,”hgnc_symbol”,”ensembl_gene_id”), filters = “entrezgene”, values =entrzID, mart=ensembl)<br>write.table(genesymbol, file=”symbol.xls”, sep=”\t”,quote=F)</p>
+<p>tmp&lt;-read.table(“geneid.txt”)  ###需要转换的geneid 集<br>tmp2&lt;-getBM(attributes=c(“entrezgene”,”hgnc_symbol”,”ensembl_gene_id”), filters = “entrezgene”, values =tmp, mart=ensembl )<br>write.table(tmp2, file=”xxx.xls”, sep=”\t”,quote=F)</p>
 
-        <div class="article-info info-on-right">
-          
-          
+      
 
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>请我吃糖果吧，谢谢你！<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/img/zhifubao.png">
+                      <span class="reward-type">支付宝</span>
+                    </div>
+                    
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/img/weixin.png">
+                      <span class="reward-type">微信</span>
+                    </div>
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
+        </div>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="http://s.jiathis.com/qrcode.php?url=https://lixia2017.github.io/2017/06/13/lecture-8-ID转换/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/06/12/Ubuntu-中安装R-Rstudio/" class="archive-article-date">
-  	<time datetime="2017-06-12T08:44:47.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-06-12</time>
-</a>
-        </div>
-    	 
+<nav id="article-nav">
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/06/12/Ubuntu-中安装R-Rstudio/">Ubuntu 中安装R/Rstudio</a>
-    </h1>
+  
+    <a href="/2017/06/12/Ubuntu-中安装R-Rstudio/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Ubuntu 中安装R/Rstudio</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+
+
+
+  
+  
+  
+  <div id="cloud-tie-wrapper" class="cloud-tie-wrapper"></div>
+<script>
+  var cloudTieConfig = {
+    url: "https://lixia2017.github.io/2017/06/13/lecture-8-ID转换/", 
+    sourceId: "lecture-8-ID转换",
+    productKey: "fasle",
+    target: "cloud-tie-wrapper"
+  };
+</script>
+<script src="https://img1.cache.netease.com/f2e/tie/yun/sdk/loader.js"></script>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">-Myblog</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/06/12/Ubuntu-安装deb软件/" class="archive-article-date">
-  	<time datetime="2017-06-12T08:28:42.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-06-12</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/06/12/Ubuntu-安装deb软件/">Ubuntu 安装deb软件</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Myblog</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/06/02/理清下目前的状态/" class="archive-article-date">
-  	<time datetime="2017-06-02T15:06:18.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-06-02</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/06/02/理清下目前的状态/">吾日三省</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">-Myblog</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/06/02/脐带血，骨髓和动员外周血造血干细胞/" class="archive-article-date">
-  	<time datetime="2017-06-02T09:35:39.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-06-02</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/06/02/脐带血，骨髓和动员外周血造血干细胞/">脐带血，骨髓和动员外周血造血干细胞</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">-Myblog</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/06/02/config-yml-的建议/" class="archive-article-date">
-  	<time datetime="2017-06-02T02:41:19.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-06-02</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/06/02/config-yml-的建议/">_config.yml 的建议</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">-Myblog</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/06/02/github-io-Page-build-failure/" class="archive-article-date">
-  	<time datetime="2017-06-02T01:39:35.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-06-02</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/06/02/github-io-Page-build-failure/">github.io Page build failure</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">-Myblog</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/06/01/RNA-Seq-analysis-by-HISTAT2-StringTie-Ballgown/" class="archive-article-date">
-  	<time datetime="2017-06-01T05:08:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-06-01</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/06/01/RNA-Seq-analysis-by-HISTAT2-StringTie-Ballgown/">RNA-Seq analysis by HISTAT2_StringTie_Ballgown</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">-Bioninformation</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/06/01/hello-world/" class="archive-article-date">
-  	<time datetime="2017-06-01T03:10:24.836Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-06-01</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/06/01/hello-world/">Hello World</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/05/31/Hematopoietic-stem-differeatiation/" class="archive-article-date">
-  	<time datetime="2017-05-31T06:08:49.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-05-31</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/05/31/Hematopoietic-stem-differeatiation/">Hematopoietic stem differeatiation</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">-Myblog</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
-
-    
-    <nav id="page-nav">
-      <span class="page-number current">1</span><a class="page-number" href="/archives/2017/page/2/">2</a><a class="page-number" href="/archives/2017/page/3/">3</a><a class="extend next" rel="next" href="/archives/2017/page/2/">Next &raquo;</a>
-    </nav>
-  
+<!-- 网易云跟帖 -->
 
 
           </div>
@@ -559,8 +377,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,

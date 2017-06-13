@@ -153,6 +153,88 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-lecture-8-ID转换" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/06/13/lecture-8-ID转换/">lecture 8 ID转换</a>
+    </h1>
+  
+
+          
+          <!-- 显示阅读和评论数 -->
+          
+           <span id="busuanzi_container_page_pv">
+             本文总阅读量<span id="busuanzi_value_page_pv"></span>次
+           </span>
+
+          
+        
+        <a href="/2017/06/13/lecture-8-ID转换/" class="archive-article-date">
+  	<time datetime="2017-06-13T04:13:01.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-06-13</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>ID转换<br>ID转换，就是找到对应关系，然后match所需转换的ID！</p>
+<ol>
+<li>针对芯片数据，可用芯片对应的Ｒ包，如下：</li>
+</ol>
+<p>1.1 affymetrix芯片处理</p>
+<p>rm(list=ls())</p>
+<p>library(“hgu95av2.db”)<br>ls(‘package:hgu95av2.db’)　#36种对应关系</p>
+<p>probe2entrezID=toTable(hgu95av2ENTREZID)<br>probe2symbol=toTable(hgu95av2SYMBOL)<br>probe2genename=toTable(hgu95av2GENENAME)</p>
+<p>my_probe = sample(unique(mappedLkeys(hgu95av2ENTREZID)),30)</p>
+<p>tmp1 = probe2symbol[match(my_probe,probe2symbol$probe_id),]<br>tmp2 = probe2entrezID[match(my_probe,probe2entrezID$probe_id),]<br>tmp3 = probe2genename[match(my_probe,probe2genename$probe_id),]</p>
+<p>write.table(my_probe,’my_probe.txt’,quote = F,col.names = F,row.names =F)<br>write.table(tmp1$symbol,’my_symbol.txt’,quote = F,col.names = F,row.names =F)<br>write.table(tmp2$gene_id,’my_geneID.txt’,quote = F,col.names = F,row.names =F)</p>
+<p>1.2illumina芯片的 探针：</p>
+<p>library(“illuminaHumanv4.db”)<br>ls(‘package:illuminaHumanv4.db’)</p>
+<p>probe2entrezID=toTable(illuminaHumanv4ENTREZID)<br>probe2symbol=toTable(illuminaHumanv4SYMBOL)<br>probe2genename=toTable(illuminaHumanv4GENENAME)</p>
+<p>my_probe = sample(unique(mappedLkeys(illuminaHumanv4ENTREZID)),30)</p>
+<p>probe2symbol[match(my_probe,probe2symbol$probe_id),]<br>probe2entrezID[match(my_probe,probe2entrezID$probe_id),]<br>probe2genename[match(my_probe,probe2genename$probe_id),]</p>
+<ol>
+<li>基因数据<br>library(“illuminaHumanv4.db”)<br>ls(‘package:illuminaHumanv4.db’)<br>my_entrez_gene = sample(unique(mappedRkeys(illuminaHumanv4ENTREZID)),30)<br>my_symbol_gene = sample(unique(mappedRkeys(illuminaHumanv4SYMBOL)),30)</li>
+</ol>
+<p>library(“org.Hs.eg.db”)<br>ls(‘package:org.Hs.eg.db’)</p>
+<p>entrezID2symbol &lt;- toTable(org.Hs.egSYMBOL)</p>
+<p>entrezID2symbol[match(my_entrez_gene,entrezID2symbol$gene_id),]<br>entrezID2symbol[match(my_symbol_gene,entrezID2symbol$symbol),]</p>
+<p>此外，还有Biomart包</p>
+<p>source(“<a href="http://bioconductor.org/biocLite.R" target="_blank" rel="external">http://bioconductor.org/biocLite.R</a>“)<br>options(BioC_mirror=”<a href="http://mirrors.ustc.edu.cn/bioc/" target="_blank" rel="external">http://mirrors.ustc.edu.cn/bioc/</a>“)<br>biocLite(“org.Hs.eg.db”)</p>
+<p>library(org.Hs.eg.db)<br>biocLite(“biomaRt”)<br>library(biomaRt)</p>
+<p>ensembl &lt;-  useMart(“ensembl”, dataset = “hsapiens_gene_ensembl”)</p>
+<p>entrzID=c(“672”,”1”)<br>getBM(attributes=c(“entrezgene”,”hgnc_symbol”,”ensembl_gene_id”), filters = “entrezgene”, values =entrzID, mart=ensembl)</p>
+<p>genesymbol&lt;-getBM(attributes=c(“entrezgene”,”hgnc_symbol”,”ensembl_gene_id”), filters = “entrezgene”, values =entrzID, mart=ensembl)<br>write.table(genesymbol, file=”symbol.xls”, sep=”\t”,quote=F)</p>
+<p>tmp&lt;-read.table(“geneid.txt”)  ###需要转换的geneid 集<br>tmp2&lt;-getBM(attributes=c(“entrezgene”,”hgnc_symbol”,”ensembl_gene_id”), filters = “entrezgene”, values =tmp, mart=ensembl )<br>write.table(tmp2, file=”xxx.xls”, sep=”\t”,quote=F)</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+<!-- 网易云跟帖 -->
+
+
+  
     <article id="post-Ubuntu-中安装R-Rstudio" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -734,73 +816,6 @@
 			 
         		<li class="article-tag-list-item">
         			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">-Myblog</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-<!-- 网易云跟帖 -->
-
-
-  
-    <article id="post-lecture11" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/05/29/lecture11/">lecture11</a>
-    </h1>
-  
-
-          
-          <!-- 显示阅读和评论数 -->
-          
-           <span id="busuanzi_container_page_pv">
-             本文总阅读量<span id="busuanzi_value_page_pv"></span>次
-           </span>
-
-          
-        
-        <a href="/2017/05/29/lecture11/" class="archive-article-date">
-  	<time datetime="2017-05-29T03:47:30.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-05-29</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>lecture11：把文件内容按照染色体分开写出<br>目的：生物信息学数据比较大，比如sam，vcf，或者gtf，bed都是把所有染色体综合在一起的文件。如果想根据染色体把大文件拆分成小的文件呢？<br>比如：ftp://ftp.ncbi.nlm.nih.gov/pub/C … an/CCDS.current.txt<br>这个文件里面的基因就有染色体信息，那根据染色体把这个文件拆分成1~22和其它染色体，这样的23个文件。<br>
-        
-          <a class="article-more-a" href="/2017/05/29/lecture11/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">-Bioinformation</a>
         		</li>
       		
 		</ul>
