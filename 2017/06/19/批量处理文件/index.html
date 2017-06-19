@@ -6,19 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://lixia2017.github.io">
-  <title>ggplot2 绘图 | 生命在于折腾！</title>
+  <title>批量处理文件 | 生命在于折腾！</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="ggplot2 绘图Summary  总体介绍 -R语言四套绘图系统：">
-<meta name="keywords" content="-Bioinformation">
+  <meta name="description" content="#利用polyA.pl去除AAAAA, 下面为１.sh文件 COLarray=(“COL01”)Subarray=(“ROW01” “ROW02” “ROW03”) for i in ${Subarray[]}  do  for m in ${COLarray[]}  do    echo $(date +”%b %d %T”)” ….. Trimming Poly A for “$m”“$i">
+<meta name="keywords" content="--Bioinformation">
 <meta property="og:type" content="article">
-<meta property="og:title" content="ggplot2 绘图">
-<meta property="og:url" content="https://lixia2017.github.io/2017/05/17/ggplot2 绘图/index.html">
+<meta property="og:title" content="批量处理文件">
+<meta property="og:url" content="https://lixia2017.github.io/2017/06/19/批量处理文件/index.html">
 <meta property="og:site_name" content="生命在于折腾！">
-<meta property="og:description" content="ggplot2 绘图Summary  总体介绍 -R语言四套绘图系统：">
-<meta property="og:updated_time" content="2017-05-18T01:22:15.030Z">
+<meta property="og:description" content="#利用polyA.pl去除AAAAA, 下面为１.sh文件 COLarray=(“COL01”)Subarray=(“ROW01” “ROW02” “ROW03”) for i in ${Subarray[]}  do  for m in ${COLarray[]}  do    echo $(date +”%b %d %T”)” ….. Trimming Poly A for “$m”“$i">
+<meta property="og:updated_time" content="2017-06-19T08:44:39.736Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="ggplot2 绘图">
-<meta name="twitter:description" content="ggplot2 绘图Summary  总体介绍 -R语言四套绘图系统：">
+<meta name="twitter:title" content="批量处理文件">
+<meta name="twitter:description" content="#利用polyA.pl去除AAAAA, 下面为１.sh文件 COLarray=(“COL01”)Subarray=(“ROW01” “ROW02” “ROW03”) for i in ${Subarray[]}  do  for m in ${COLarray[]}  do    echo $(date +”%b %d %T”)” ….. Trimming Poly A for “$m”“$i">
   
     <link rel="alternative" href="/atom.xml" title="生命在于折腾！" type="application/atom+xml">
   
@@ -156,14 +156,14 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-ggplot2 绘图" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-批量处理文件" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      ggplot2 绘图
+      批量处理文件
     </h1>
   
 
@@ -176,63 +176,22 @@
 
           
         
-        <a href="/2017/05/17/ggplot2 绘图/" class="archive-article-date">
-  	<time datetime="2017-05-17T04:36:25.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-05-17</time>
+        <a href="/2017/06/19/批量处理文件/" class="archive-article-date">
+  	<time datetime="2017-06-19T08:42:11.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-06-19</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>ggplot2 绘图Summary</p>
-<ol>
-<li>总体介绍 -R语言四套绘图系统：</li>
-</ol>
-<a id="more"></a>
-<p>基础绘图系统（base R graphics）<br>grid图形系统 （grid graphics）<br>lattice绘图系统 （the lattice system）<br>ggplot2绘图系统 （the ggplot2 system）</p>
-<p>基础绘图系统（graphics包）：plot, boxplot, hist….<br>grid绘图系统：低于标准绘图系统，最灵活，无统计图形以及完整的绘图函数；<br>Lattice绘图系统：基于grid，是S-PLUS里的Trellis图形在R中的实现。Trellis是多元数据可视化的方法，特别适用于发现各变量之间的相互作用关系；<br>ggplot2绘图系统：基于grid，通过对独立的图形部件的组合（layers）进行绘图，美观，灵活；</p>
-<ol>
-<li>ggplot绘图<br>数据（data）</li>
-</ol>
-<p>映射（mapping）<br> 数据与图形属性(横纵坐标，大小，颜色，形状)的关联，aes()<br> 每个图形属性可以映射为一个变量或者设定为一个常数</p>
-<p>几何对象（geom）<br> 控制生成图像的类型<br>  geom_point(): 散点图<br>  geom_line(): 折线图<br>  geom_histogram(): 直方图</p>
-<p>统计变换（stats）<br> 以某种方式对数据进行汇总<br>  stat_smoth():添加光滑曲线</p>
-<p>标度（scale）<br> 将数值转化为大小，颜色，位置，形状等信息<br>坐标系（coord）<br> 笛卡尔坐标系<br> 极坐标系</p>
-<p>分面（facet）<br> 将数据子集绘制到同一页面的不同面板中</p>
-<p>主题（theme）<br> 控制非数据元素外观，如标题，背景，坐标轴标签等</p>
-<p>存储和输出（ggsave）</p>
-<ol>
-<li>基本数据操作<br>ggplot2进行数据分组时只能根据行，<br> 因此需要把数据化“宽”为“长”<br>reshape2<br> library(reshape2)<br> melt(data[,c(“S0h1”,”S0h2”)], measure.vars = c(“S0h1”,”S0h2”))</li>
-</ol>
-<p>主要参数: melt(data, id.vars, measure.vars)<br>data：待变形的原始数据<br>id.vars：变形后依旧单独占据一列，位置保持不变的变量，通常是离散且预先给定的<br>measure.vars：需要被放在同一列的变量，根据原变量名进行分组，变量用来记录每行数据原来属于哪一列</p>
-<ol>
-<li>实战演练<h3 id="载入所需程序包"><a href="#载入所需程序包" class="headerlink" title="载入所需程序包"></a>载入所需程序包</h3>library(ggplot2)<br>library(reshape2)<h3 id="读入数据"><a href="#读入数据" class="headerlink" title="读入数据"></a>读入数据</h3>data &lt;- read.table(“heatmap_rpkm.txt”,header=T,sep=”\t”,row.names=1)<br>head(data)<br>data = log2(data+0.01)</li>
-</ol>
-<h3 id="数据，映射，几何对象"><a href="#数据，映射，几何对象" class="headerlink" title="数据，映射，几何对象"></a>数据，映射，几何对象</h3><h3 id="散点图"><a href="#散点图" class="headerlink" title="散点图"></a>散点图</h3><p>p1 &lt;- ggplot(data, aes(S0h1, S0h2)) + geom_point()+theme_bw()<br>p1</p>
-<p>#theme_bw()：A theme with white background and black gridlines.　与白色背景和黑色网格线的一个主题。<br>＃背景色为白色：p+ theme_set(theme_bw())<br>＃去掉网格线：p+theme(panel.grid.major=element_line(colour=NA))</p>
-<h3 id="折线图"><a href="#折线图" class="headerlink" title="折线图"></a>折线图</h3><p>p2 &lt;- ggplot(data, aes(S0h1, S0h2)) + geom_line()<br>p2</p>
-<h3 id="柱状图"><a href="#柱状图" class="headerlink" title="柱状图"></a>柱状图</h3><p>p3 &lt;- ggplot(data, aes(S0h1)) + geom_histogram(bins=20)<br>p3</p>
-<h3 id="箱线图，-抖点图"><a href="#箱线图，-抖点图" class="headerlink" title="箱线图， 抖点图"></a>箱线图， 抖点图</h3><p>data.melt &lt;- melt(data[,c(“S0h1”,”S0h2”)])<br>p4 &lt;- ggplot(data.melt, aes(variable, value)) + geom_boxplot() + geom_jitter()<br>p4</p>
-<h3 id="统计变换"><a href="#统计变换" class="headerlink" title="统计变换"></a>统计变换</h3><p>p5 &lt;- ggplot(data, aes(S0h1, S0h2)) + geom_point() + stat_smooth(method = “lm”, formula = y ~ x)<br>p5</p>
-<h3 id="设置颜色"><a href="#设置颜色" class="headerlink" title="设置颜色"></a>设置颜色</h3><p>p6 &lt;- ggplot(data.melt, aes(variable, value)) + geom_boxplot(fill=c(“red”,”blue”)) + geom_jitter(aes(color=variable))<br>p6</p>
-<h3 id="设置形状"><a href="#设置形状" class="headerlink" title="设置形状"></a>设置形状</h3><p>p7 &lt;- ggplot(data.melt, aes(variable, value)) + geom_boxplot() + geom_jitter(shape=10)<br>p7</p>
-<h3 id="设置透明度"><a href="#设置透明度" class="headerlink" title="设置透明度"></a>设置透明度</h3><p>p8 &lt;- ggplot(data.melt, aes(variable, value)) + geom_boxplot() + geom_jitter(alpha=.5)<br>p8</p>
-<h3 id="设置大小"><a href="#设置大小" class="headerlink" title="设置大小"></a>设置大小</h3><p>p9 &lt;- ggplot(data.melt, aes(variable, value)) + geom_boxplot() + geom_jitter(size=3)<br>p9</p>
-<h3 id="图层叠加"><a href="#图层叠加" class="headerlink" title="图层叠加"></a>图层叠加</h3><p>p10 &lt;- ggplot(data.melt, aes(variable, value)) + geom_boxplot() + geom_jitter(shape=10)+geom_jitter(alpha=.5,size=3)<br>p10</p>
-<p>标度<br>　将连续或离散的变量值映射到颜色<br>　# geom_jitter(aes(color=value)：将value值映射到颜色<br>　p19 &lt;- ggplot(data.melt, aes(variable, value)) + geom_jitter(aes(color=value))+<br>    scale_color_gradient(“rpkm”,low=”black”, high=”pink”)<br>　# geom_jitter(aes(color=variable)：将variable值映射到颜色<br>　p20 &lt;- ggplot(data.melt, aes(variable, value)) + geom_jitter(aes(color=variable))+<br>    scale_color_brewer(“replicate”, breaks=c(“S0h1”,”S0h2”),<br>    labels=c(“rep1”,”rep2”), palette = “Set2”)　　＃＃palette调色板</p>
-<p>主题</p>
-<p>#　labs：设置图片以及图例标题</p>
-<p>#　xlab，ylab：xy坐标轴标题</p>
-<p>#　theme：字体大小，颜色，位置等</p>
-<p>p6 &lt;- ggplot(data.melt, aes(variable, value)) + geom_boxplot(fill=c(“red”,”blue”)) + geom_jitter(aes(color=variable))</p>
-<p>p12 &lt;- p6 + theme_bw() + labs(title = “bw”)#白色背景<br>p12</p>
-<p>p13 &lt;- p6 + theme_grey() + labs(title = “grey”)#默认浅灰色背景<br>p13</p>
-<p>p14 &lt;- p6 + theme_bw() + labs(title =”legend”, col=”samples”) +<br>    xlab(“sample”) + ylab(“log2(rpkm)”) +<br>    theme(axis.text = element_text(size = 14),<br>    plot.title = element_text(hjust = 0.5))</p>
-<p>p15 &lt;- p6 + theme_bw() + labs(col=”samples”) +<br>    xlab(“sample”) + ylab(“log2(rpkm)”) +<br>    theme(axis.text = element_text(size = 14), legend.position = “top”)</p>
-<p>添加图形注解</p>
-<h1 id="添加竖直线"><a href="#添加竖直线" class="headerlink" title="添加竖直线"></a>添加竖直线</h1><p>p16 &lt;- p1 + geom_vline(xintercept = c(0,5), color=”red”)</p>
-<h1 id="添加矩形元素"><a href="#添加矩形元素" class="headerlink" title="添加矩形元素"></a>添加矩形元素</h1><p>p17 &lt;- p1 + geom_rect(xmin=-5, xmax=5, ymin=-5, ymax=5, alpha=.01, fill=”orange”)</p>
-<h1 id="添加文字注释"><a href="#添加文字注释" class="headerlink" title="添加文字注释"></a>添加文字注释</h1><p>p18 &lt;- p1 + geom_text(x=5, y=0, label=”correlation between the\ntwo replicates”) </p>
+        <p>#利用polyA.pl去除AAAAA, 下面为１.sh文件</p>
+<p>COLarray=(“COL01”)<br>Subarray=(“ROW01” “ROW02” “ROW03”)</p>
+<p>for i in ${Subarray[<em>]}<br>  do<br>  for m in ${COLarray[</em>]}<br>  do<br>    echo $(date +”%b %d %T”)” ….. Trimming Poly A for “$m”<em>“$i<br>        perl polyA.pl $m”</em>“$i”<em>R2.fastq” $m”</em>“$i”<em>R2.fastq2” $m”</em>“$i”_R2_bad”  6 3<br>  done<br>  wait<br>done</p>
+<p>在ｓｈｅｌｌ中输入bash 1.sh 即可</p>
+<p>备注：<br>１．　$代表变量，无需“”；只有如　_ 需要加入“”，如“－”<br>２．　ｐｅｒｌ没有加入环境变量，需要加入；</p>
+<p>此外还可以利用<br>ls <em>_R2.fastq | while read id; do perl polyA.pl $id ./filter/${id%.</em>} ./bad/${id%.*} 6　3　<br>进行循环处理</p>
+<p>ls <em>_R2.fastq | while read id; do perl polyA.pl $id ./filter/${id%.</em>_f.fastq} ./bad/${id%.*_b.fastq} 6 3</p>
+<p>如上述有问题，试试手打代码进行尝试！！！可能是复制代码过程中遇到了问题。。。</p>
 
       
 
@@ -277,7 +236,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">-Bioinformation</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">--Bioinformation</a>
         		</li>
       		
 		</ul>
@@ -333,7 +292,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="http://s.jiathis.com/qrcode.php?url=https://lixia2017.github.io/2017/05/17/ggplot2 绘图/" alt="微信分享二维码">
+      <img src="http://s.jiathis.com/qrcode.php?url=https://lixia2017.github.io/2017/06/19/批量处理文件/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -347,18 +306,9 @@
   
 <nav id="article-nav">
   
-    <a href="/2017/05/18/通过github-hexo创建个人博客与美化/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          通过github-hexo创建个人博客与美化
-        
-      </div>
-    </a>
   
-  
-    <a href="/2017/05/16/R的常见命定/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">R的常见命令</div>
+    <a href="/2017/06/15/cutadapt软件对测序数据去接头/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">cutadapt软件对测序数据去接头</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -374,8 +324,8 @@
   <div id="cloud-tie-wrapper" class="cloud-tie-wrapper"></div>
 <script>
   var cloudTieConfig = {
-    url: "https://lixia2017.github.io/2017/05/17/ggplot2 绘图/", 
-    sourceId: "ggplot2 绘图",
+    url: "https://lixia2017.github.io/2017/06/19/批量处理文件/", 
+    sourceId: "批量处理文件",
     productKey: "fasle",
     target: "cloud-tie-wrapper"
   };
