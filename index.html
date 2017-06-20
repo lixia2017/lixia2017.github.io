@@ -181,7 +181,7 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>#利用polyA.pl去除AAAAA, 下面为１.sh文件<br><!--mroe--></p>
+        <p>#利用polyA.pl去除AAAAA, 下面为１.sh文件　简写版本<br>for i in *fastq<br>do<br>echo $i<br>perl polyA.pl $i ./f/$i”_f.fastq” ./b$i”_bad.fastq” 6 3<br>done<br><!--mroe--></p>
 <p>COLarray=(“COL01”)<br>Subarray=(“ROW01” “ROW02” “ROW03”)</p>
 <p>for i in ${Subarray[<em>]}<br>  do<br>  for m in ${COLarray[</em>]}<br>  do<br>    echo $(date +”%b %d %T”)” ….. Trimming Poly A for “$m”<em>“$i<br>        perl polyA.pl $m”</em>“$i”<em>R2.fastq” $m”</em>“$i”<em>R2.fastq2” $m”</em>“$i”_R2_bad”  6 3<br>  done<br>  wait<br>done</p>
 <p>在ｓｈｅｌｌ中输入bash 1.sh 即可</p>
