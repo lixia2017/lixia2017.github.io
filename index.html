@@ -181,15 +181,10 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>#利用polyA.pl去除AAAAA, 下面为１.sh文件　简写版本<br>for i in *fastq<br>do<br>echo $i<br>perl polyA.pl $i ./f/$i”_f.fastq” ./b$i”_bad.fastq” 6 3<br>done<br><!--mroe--></p>
-<p>COLarray=(“COL01”)<br>Subarray=(“ROW01” “ROW02” “ROW03”)</p>
-<p>for i in ${Subarray[<em>]}<br>  do<br>  for m in ${COLarray[</em>]}<br>  do<br>    echo $(date +”%b %d %T”)” ….. Trimming Poly A for “$m”<em>“$i<br>        perl polyA.pl $m”</em>“$i”<em>R2.fastq” $m”</em>“$i”<em>R2.fastq2” $m”</em>“$i”_R2_bad”  6 3<br>  done<br>  wait<br>done</p>
-<p>在ｓｈｅｌｌ中输入bash 1.sh 即可</p>
-<p>备注：<br>１．　$代表变量，无需“”；只有如　_ 需要加入“”，如“－”<br>２．　ｐｅｒｌ没有加入环境变量，需要加入；</p>
-<p>此外还可以利用<br>ls <em>_R2.fastq | while read id; do perl polyA.pl $id ./filter/${id%.</em>} ./bad/${id%.*} 6　3　<br>进行循环处理</p>
-<p>ls <em>_R2.fastq | while read id; do perl polyA.pl $id ./filter/${id%.</em>_f.fastq} ./bad/${id%.*_b.fastq} 6 3</p>
-<p>如上述有问题，试试手打代码进行尝试！！！可能是复制代码过程中遇到了问题。。。</p>
-
+        <p>#利用polyA.pl去除AAAAA, 下面为１.sh文件　简写版本<br>for i in *fastq<br>do<br>echo $i<br>perl polyA.pl $i ./f/$i”_f.fastq” ./b$i”_bad.fastq” 6 3<br>done<br>
+        
+          <a class="article-more-a" href="/2017/06/19/批量处理文件/#more">more >></a>
+        
       
 
       
